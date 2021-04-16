@@ -4,6 +4,7 @@ node_js:
 install:
   - npm ci
 script:
+  - npm install
   - npm run build
 deploy:
   provider: pages
