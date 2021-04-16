@@ -7,21 +7,22 @@ import About from "../views/About.vue"
 const routes = [
   {
     path: "/portafolio",
+    alias: "/",
     name: "Home",
     component: Home
   },
   {
-    path: "/contact",
+    path: "/portafolio/contact",
     name: "Contact",
     component: Contact
   },
   {
-    path: "/works",
+    path: "/portafolio/works",
     name: "Works",
     component: Works
   },
   {
-    path: "/about",
+    path: "/portafolio/about",
     name: "About",
     component: About
   }

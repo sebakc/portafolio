@@ -20,6 +20,7 @@ export default {
     }
   },
   mounted() {
+
     this.switchView()
     this.mouse()
   },
@@ -90,15 +91,15 @@ export default {
           document.addEventListener('mouseenter', function(e) {
             self.cursorVisible = true;
             self.toggleCursorVisibility();
-            self.$dot.style.opacity = 1;
-            self.$outline.style.opacity = 1;
+            self.$dot.style.display = 'block';
+            self.$outline.style.display = 'block';
           });
           
           document.addEventListener('mouseleave', function(e) {
             self.cursorVisible = true;
             self.toggleCursorVisibility();
-            self.$dot.style.opacity = 0;
-            self.$outline.style.opacity = 0;
+            self.$dot.style.display = 'none';
+            self.$outline.style.display = 'none';
           });
         },
         
@@ -141,13 +142,13 @@ export default {
       cursor.init();
     },
     switchView () {
-
       setTimeout(_ => {
         document.body.classList.add('white-in')
         document.body.classList.remove('done')
       }, 500)
 
       setTimeout(_ => {
+        document.body.classList.remove('zero')
         document.body.classList.add('black-in')
       }, 1500)
 
@@ -241,6 +242,9 @@ a {
 body {
   background: var(--white);
   text-transform: uppercase;
+  &.zero {
+    opacity: 0;
+  }
   &::before {
     top: -100%;
     content: '';

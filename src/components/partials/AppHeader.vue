@@ -15,9 +15,9 @@
         <nav>
           <ul>
             <li>
-              <a class="nav-link" @click='goTo("/works")'>Works</a>
-              <a class="nav-link" @click='goTo("/about")'>About</a>
-              <a class="nav-link" @click='goTo("/contact")'>Contact</a>
+              <a class="nav-link" @click='goTo("/portafolio/works")'>Works</a>
+              <a class="nav-link" @click='goTo("/portafolio/about")'>About</a>
+              <a class="nav-link" @click='goTo("/portafolio/contact")'>Contact</a>
               <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/sebastian-vega-pena">
                 <img src="../../assets/linkedin.svg" alt="linkedin">
               </a>

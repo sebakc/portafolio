@@ -41,6 +41,17 @@
     li {
       margin-right: 1em;
     }
+    &::before {
+      content: '';
+      height: 60%;
+      width: 100%;
+      background: var(--dark);
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 99;
+    }
   }
   @media screen and (min-width: 550px) {
     align-items: center;
