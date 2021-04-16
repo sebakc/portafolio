@@ -229,6 +229,7 @@ a {
   max-width: 1200px;
   margin: auto;
   padding: 0 20px;
+  width: 100%;
 }
 #app {
   font-family: 'Syne', Avenir, Helvetica, Arial, sans-serif;
