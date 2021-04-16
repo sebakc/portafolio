@@ -1,0 +1,39 @@
+@import './form.scss';
+
+:root {
+  --primary: #333333;
+  --white: #f4f4f4;
+  --main-size: 20px;
+  --second-size: 16px;
+}
+
+.section {
+  text-align: center;
+  @media screen and (min-width: 550px) {
+    height: calc(100vh - 46px);
+  }
+  &.section-left {
+    text-align: left;
+  }
+}
+input, textarea {
+  outline: none;
+}
+.d-flex {
+  display: flex;
+}
+.blank-list{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  li {
+    margin-bottom: 1em;
+    * {
+      vertical-align: middle;
+    }
+  }
+}
+.icon {
+  width: 20px;
+  height: 20px;
+}
