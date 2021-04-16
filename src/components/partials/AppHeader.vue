@@ -8,7 +8,9 @@
               Sebastian Vega
             </div>
             <div class="self-self">
-              Full stack developer, based in Chile
+              Full stack developer,
+              <br>
+              based in Chile
             </div>
           </div>
         </span>
@@ -44,6 +46,7 @@ export default {
 .self {
   text-align: left;
   .self-name {
+    padding-top: 10px;
     font-weight: 700;
     font-size: 25px;
   }

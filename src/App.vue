@@ -226,10 +226,11 @@ a {
   display: inline-block;
 }
 .limit {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
   padding: 0 20px;
   width: 100%;
+  box-sizing: border-box;
 }
 #app {
   font-family: 'Syne', Avenir, Helvetica, Arial, sans-serif;
