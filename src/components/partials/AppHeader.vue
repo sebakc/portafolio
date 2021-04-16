@@ -18,8 +18,14 @@
           <ul>
             <li>
               <a class="nav-link" @click='goTo("/works")'>Works</a>
+            </li>
+            <li>
               <a class="nav-link" @click='goTo("/about")'>About</a>
+            </li>
+            <li>
               <a class="nav-link" @click='goTo("/contact")'>Contact</a>
+            </li>
+            <li>
               <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/sebastian-vega-pena">
                 <img src="../../assets/linkedin.svg" alt="linkedin">
               </a>
@@ -61,11 +67,12 @@ header {
         list-style-type: none;
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
         li {
-          a {
-            padding: 10px;
-            transition: ease-in-out all .2s;
-            &:last-child {
+          &:last-child {
+            a {
               height: 15px;
               width: 15px;
               padding-right: 0;
@@ -73,6 +80,10 @@ header {
                 object-fit: cover;
               }
             }
+          }
+          a {
+            padding: 10px;
+            transition: ease-in-out all .2s;
             &:hover {
               letter-spacing: 5px;
             }
