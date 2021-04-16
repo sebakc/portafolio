@@ -2,7 +2,7 @@
   <header>
     <div class="limit">
       <div class="flex">
-        <span @click='goTo("/")'>
+        <span @click='goTo("/portafolio")'>
           <div class="self">
             <div class="self-name">
               Sebastian Vega
