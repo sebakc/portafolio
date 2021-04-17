@@ -19,7 +19,7 @@
       <article class="work">
         <div class="work-image">
           <Browser :project="current" :history="history">
-            <img :src="`/portafolio/src/assets/screenshots/${current.img}`" :alt="current.project" />
+            <img id="screen" :src="images[current.img]" :alt="current.project" />
           </Browser>
         </div>
         <div class="work-body">
@@ -41,7 +41,7 @@
                 v-for="(icon, i) in current.icons"
                 :key="`icon-${i}`"
                 :class="['icon', icon.size]"
-                :src="`/portafolio/src/assets/${icon.name}.svg`"
+                :src="images[icon.name]"
                 :alt="icon.name"
               />
             </div>
@@ -64,7 +64,7 @@
                 v-for="(icon, i) in current.icons"
                 :key="`icon-${i}`"
                 :class="['icon', icon.size]"
-                :src="`/portafolio/src/assets/${icon.name}.svg`"
+                :src="images[icon.name]"
                 :alt="icon.name"
               />
             </div>
@@ -76,24 +76,27 @@
 </template>
 <script>
 import Browser from '../components/Browser.vue'
-
+import Images from '../components/images.js'
 export default {
   components: {
-    Browser
+    Browser,
+    Images
   },
   data () {
     return  {
       x: 0,
+      oli: '',
       y: 0,
       startX: 0,
       startY: 0,
       current: {},
       history: [],
+      images: [],
       projects: [
         {
           project: 'Observatorio nacional',
           web: 'https://observatorionacional.cl/',
-          img: 'ol.png',
+          img: 'ol',
           year: '2020',
           role: 'Main developer (Full stack)',
           technologies: 'AdonisJs - VueJs',
@@ -131,7 +134,7 @@ export default {
         {
           project: 'Simef',
           web: 'http://simef.minagri.gob.cl/',
-          img: 'simef.png',
+          img: 'simef',
           year: '2020',
           role: 'Full stack developer',
           technologies: 'Laravel - VueJs',
@@ -165,7 +168,14 @@ export default {
       ]
     }
   },
+  watch: {
+    current () {
+      //import screen from `../assets/screenshots/${this.current.img}`
+      //document.getElementById('screen').src = screen
+    }
+  },
   mounted () {
+    this.images = Images
     this.current = this.projects[0]
     this.history.push(this.projects[0])
     let left = document.querySelector('.work-image').offsetWidth + 20
