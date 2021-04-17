@@ -20,7 +20,7 @@
               <label for="Technologies">Technologies</label>
               <div id="Technologies">Laravel - Vue</div>
             </div>
-            <div class="work-item op-0">
+            <div class="work-item show-mobile">
               <img class="icon x2" src="../assets/adonisjs.svg" alt="adonisjs">
               <img class="icon" src="../assets/vue.svg" alt="vuejs">
               <img class="icon" src="../assets/sass.svg" alt="sass">

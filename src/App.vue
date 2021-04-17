@@ -181,9 +181,11 @@ body {
 }
 
 .hide-mouse {
-  .cursor-dot,
-  .cursor-dot-outline {
-    opacity: 0 !important;
+  @media screen and (min-width: 550px) {
+    .cursor-dot,
+    .cursor-dot-outline {
+      opacity: 0 !important;
+    }
   }
 }
 
