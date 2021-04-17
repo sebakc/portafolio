@@ -1,7 +1,5 @@
 # abort on errors
 set -e
-npm install -g vue-cli
-npm install
 # build
 npm run build
 

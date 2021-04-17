@@ -4,7 +4,9 @@
       <h2 class="title">Works</h2>
       <article class="work">
         <div class="work-image">
-          <img src="https://ryota-sato.com/images/livesimple.jpg" alt="project ej" />
+          <Browser>
+            <img src="../assets/screenshots/ol.png" alt="project ej" />
+          </Browser>
         </div>
         <div class="work-body">
           <div class="content content-normal">
@@ -42,6 +44,7 @@
               <div class="detail" id="Technologies">Laravel - Vue</div>
             </div>
             <div class="work-item">
+              <img class="icon" src="../assets/d3.svg" alt="d3js">
               <img class="icon x2" src="../assets/adonisjs.svg" alt="adonisjs">
               <img class="icon" src="../assets/vue.svg" alt="vuejs">
               <img class="icon" src="../assets/sass.svg" alt="sass">
@@ -55,7 +58,12 @@
   </section>
 </template>
 <script>
+import Browser from '../components/Browser.vue'
+
 export default {
+  components: {
+    Browser
+  },
   data () {
     return  {
       x: 0,
@@ -110,9 +118,6 @@ export default {
     }
     .work-image {
       width: 100%;
-      img {
-        width: 100%;
-      }
     }
     .work-body {
       position: relative;
@@ -152,6 +157,7 @@ export default {
         padding-top: 2rem;
         @media screen and (min-width: 550px) {
           padding: 0 20px;
+          padding-top: 2rem;
         }
         .icon {
           width: 40px;
