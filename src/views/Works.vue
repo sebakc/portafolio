@@ -65,8 +65,15 @@ export default {
     }
   },
   mounted () {
-    const left = document.querySelector('.work-image').offsetWidth + 20
-    const top = document.querySelector('header').offsetHeight + document.querySelector('.title').offsetHeight + 40
+    let left = document.querySelector('.work-image').offsetWidth + 20
+    let top = document.querySelector('header').offsetHeight + document.querySelector('.title').offsetHeight
+
+    if (document.body.offsetWidth < 550) {
+      top += document.querySelector('.work-image').offsetHeight + 40
+      left = 20
+    }
+    console.log(top);
+
     document.querySelector('.content-normal').onmousemove = (e) => {
       this.x = e.clientX - left
       this.y = e.clientY - top
@@ -130,6 +137,10 @@ export default {
         clip-path: circle(31.4% at 50% 50%);
         opacity: 0;
         transition: ease-in-out opacity .2s;
+        display: none;
+        @media screen and (min-width: 550px) {
+          display: block;
+        }
         &.in {
           opacity: 1;
         }
@@ -139,7 +150,10 @@ export default {
       }
       .work-item {
         margin-bottom: 2rem;
-        padding: 0 20px;
+        padding-top: 20px;
+        @media screen and (min-width: 550px) {
+          padding: 0 20px;
+        }
         .icon {
           width: 40px;
           height: 40px;
