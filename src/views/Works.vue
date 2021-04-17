@@ -20,6 +20,13 @@
               <label for="Technologies">Technologies</label>
               <div id="Technologies">Laravel - Vue</div>
             </div>
+            <div class="work-item op-0">
+              <img class="icon x2" src="../assets/adonisjs.svg" alt="adonisjs">
+              <img class="icon" src="../assets/vue.svg" alt="vuejs">
+              <img class="icon" src="../assets/sass.svg" alt="sass">
+              <img class="icon x2" src="../assets/apache.svg" alt="apache">
+              <img class="icon x2" src="../assets/pm2.svg" alt="pm2">
+            </div>
           </div>
           <div ref="mask" class="content content-masked" :style="'clip-path: circle(60px at '+x+'px '+y+'px)'">
             <div class="work-item">
@@ -84,15 +91,25 @@ export default {
 #works {
   .work {
     display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 550px) {
+      flex-direction: row;
+      .work-image {
+        width: 60%;
+      }
+      .work-body {
+        width: 40%;
+      }
+    }
     .work-image {
-      width: 60%;
+      width: 100%;
       img {
         width: 100%;
       }
     }
     .work-body {
       position: relative;
-      width: 40%;
+      width: 100%;
       .content {
         width: 100%;
         height: 100%;
