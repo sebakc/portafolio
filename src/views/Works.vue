@@ -2,25 +2,37 @@
   <section id="works" class="section section-left">
     <div class="limit">
       <h2 class="title">Works</h2>
+      <ul class="blank-list project-list">
+        <li 
+          v-for="(item, index) in projects"
+          :key="index + '-list-item'"
+          @click="goto(item)"
+        >
+          <small>{{ index + 1 }}</small>
+          <span class="project">
+            {{ item.project }}
+          </span>
+        </li>
+      </ul>
       <article class="work">
         <div class="work-image">
-          <Browser>
-            <img src="../assets/screenshots/ol.png" alt="project ej" />
+          <Browser :project="current" :history="history">
+            <img :src="`/portafolio/src/assets/screenshots/${current.img}`" :alt="current.project" />
           </Browser>
         </div>
         <div class="work-body">
           <div class="content content-normal">
             <div class="work-item">
               <label for="year">Year</label>
-              <div id="year">2020</div>
+              <div id="year">{{ current.year }}</div>
             </div>
             <div class="work-item">
               <label for="role">Role</label>
-              <div id="role">Main developer (fullstack)</div>
+              <div id="role">{{ current.role }}</div>
             </div>
             <div class="work-item">
               <label for="Technologies">Technologies</label>
-              <div id="Technologies">Laravel - Vue</div>
+              <div id="Technologies">{{ current.technologies }}</div>
             </div>
             <div class="work-item show-mobile">
               <img class="icon x2" src="../assets/adonisjs.svg" alt="adonisjs">
@@ -33,15 +45,15 @@
           <div ref="mask" class="content content-masked" :style="'clip-path: circle(60px at '+x+'px '+y+'px)'">
             <div class="work-item">
               <label for="year">.</label>
-              <div class="detail" id="year">2020</div>
+              <div class="detail op-0" id="year">.</div>
             </div>
             <div class="work-item">
               <label for="role">.</label>
-              <div class="detail" id="role">Main developer (fullstack)</div>
+              <div class="detail op-0" id="role">.</div>
             </div>
             <div class="work-item">
               <label for="Technologies">.</label>
-              <div class="detail" id="Technologies">Laravel - Vue</div>
+              <div class="detail op-0" id="Technologies">.</div>
             </div>
             <div class="work-item">
               <img class="icon" src="../assets/d3.svg" alt="d3js">
@@ -69,10 +81,49 @@ export default {
       x: 0,
       y: 0,
       startX: 0,
-      startY: 0
+      startY: 0,
+      current: {},
+      history: [],
+      projects: [
+        {
+          project: 'Observatorio nacional',
+          web: 'https://observatorionacional.cl/',
+          img: 'ol.png',
+          year: '2020',
+          role: 'Main developer (Full stack)',
+          technologies: 'AdonisJs - VueJs',
+          icons: [
+            'd3',
+            'adonisjs',
+            'vue',
+            'sass',
+            'apache',
+            'pm2',
+            'mysql'
+          ]
+        },
+        {
+          project: 'Simef',
+          web: 'http://simef.minagri.gob.cl/',
+          img: 'simef.png',
+          year: '2020',
+          role: 'Full stack developer',
+          technologies: 'Laravel - VueJs',
+          icons: [
+            'laravel',
+            'vue',
+            'sass',
+            'apache',
+            'pm2',
+            'postgresql'
+          ]
+        }
+      ]
     }
   },
   mounted () {
+    this.current = this.projects[0]
+    this.history.push(this.projects[0])
     let left = document.querySelector('.work-image').offsetWidth + 20
     let top = document.querySelector('header').offsetHeight + document.querySelector('.title').offsetHeight
 
@@ -96,8 +147,9 @@ export default {
     }
   },
   methods: {
-    move (e) {
-      console.log(e);
+    goto (item) {
+      this.current = item
+      this.history.push(item)
     }
   }
 }
@@ -174,12 +226,17 @@ export default {
     }
   }
 }
-.mask {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  background: var(--white);
-  clip-path: circle(31.4% at 50% 50%);
+.project-list {
+  display: flex;
+  li {
+    margin-right: 20px;
+    span {
+      font-size: var(--main-size);
+      font-weight: bold;
+    }
+    * {
+      vertical-align: text-top;
+    }
+  }
 }
 </style>
