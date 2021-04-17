@@ -2,7 +2,6 @@
   <div class="content">
     <app-header />
     <router-view />
-
     <div class="cursor-dot-outline"></div>
     <div class="cursor-dot"></div>
   </div>
@@ -179,6 +178,13 @@ body {
     * {
         cursor: none;        
     }
+}
+
+.hide-mouse {
+  .cursor-dot,
+  .cursor-dot-outline {
+    opacity: 0 !important;
+  }
 }
 
 .cursor-dot,

@@ -10,15 +10,15 @@
           <div class="content content-normal">
             <div class="work-item">
               <label for="year">Year</label>
-              <div class="detail" id="year">.</div>
+              <div id="year">2020</div>
             </div>
             <div class="work-item">
               <label for="role">Role</label>
-              <div class="detail" id="role">.</div>
+              <div id="role">Main developer (fullstack)</div>
             </div>
             <div class="work-item">
               <label for="Technologies">Technologies</label>
-              <div class="detail" id="Technologies">.</div>
+              <div id="Technologies">Laravel - Vue</div>
             </div>
           </div>
           <div ref="mask" class="content content-masked" :style="'clip-path: circle(60px at '+x+'px '+y+'px)'">
@@ -33,6 +33,13 @@
             <div class="work-item">
               <label for="Technologies">.</label>
               <div class="detail" id="Technologies">Laravel - Vue</div>
+            </div>
+            <div class="work-item">
+              <img class="icon x2" src="../assets/adonisjs.svg" alt="adonisjs">
+              <img class="icon" src="../assets/vue.svg" alt="vuejs">
+              <img class="icon" src="../assets/sass.svg" alt="sass">
+              <img class="icon x2" src="../assets/apache.svg" alt="apache">
+              <img class="icon x2" src="../assets/pm2.svg" alt="pm2">
             </div>
           </div>
         </div>
@@ -59,9 +66,11 @@ export default {
     }
     document.querySelector('.content-normal').onmouseenter = (e) => {
       document.querySelector('.content-masked').classList.add('in')
+      document.body.classList.add('hide-mouse')
     }
     document.querySelector('.content-normal').onmouseleave = (e) => {
       document.querySelector('.content-masked').classList.remove('in')
+      document.body.classList.remove('hide-mouse')
     }
   },
   methods: {
@@ -86,6 +95,7 @@ export default {
       width: 40%;
       .content {
         width: 100%;
+        height: 100%;
       }
       .content-normal {
         position: relative;
@@ -98,7 +108,7 @@ export default {
         top: 0;
         left: 0;
         z-index: 9;
-        background: red;
+        background: cyan;
         position: absolute;
         clip-path: circle(31.4% at 50% 50%);
         opacity: 0;
@@ -113,6 +123,14 @@ export default {
       .work-item {
         margin-bottom: 2rem;
         padding: 0 20px;
+        .icon {
+          width: 40px;
+          height: 40px;
+          margin-right: 10px;
+          &.x2 {
+            width: 80px;
+          }
+        }
         div {
           position: relative;
         }
