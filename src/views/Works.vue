@@ -149,8 +149,7 @@ export default {
         }
       }
       .work-item {
-        margin-bottom: 2rem;
-        padding-top: 20px;
+        padding-top: 2rem;
         @media screen and (min-width: 550px) {
           padding: 0 20px;
         }
