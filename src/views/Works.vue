@@ -19,7 +19,7 @@
       <article class="work">
         <div class="work-image">
           <Browser :project="current" :history="history">
-            <img :src="`assets/screenshots/${current.img}`" :alt="current.project" />
+            <img :src="`/portafolio/src/assets/screenshots/${current.img}`" :alt="current.project" />
           </Browser>
         </div>
         <div class="work-body">
@@ -41,7 +41,7 @@
                 v-for="(icon, i) in current.icons"
                 :key="`icon-${i}`"
                 :class="['icon', icon.size]"
-                :src="`assets/${icon.name}.svg`"
+                :src="`/portafolio/src/assets/${icon.name}.svg`"
                 :alt="icon.name"
               />
             </div>
@@ -64,7 +64,7 @@
                 v-for="(icon, i) in current.icons"
                 :key="`icon-${i}`"
                 :class="['icon', icon.size]"
-                :src="`assets/${icon.name}.svg`"
+                :src="`/portafolio/src/assets/${icon.name}.svg`"
                 :alt="icon.name"
               />
             </div>
