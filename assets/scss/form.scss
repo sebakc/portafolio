@@ -1,0 +1,27 @@
+form {
+  .form-input {
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: var(--second-size);
+    }
+    input {
+      width: 100%;
+      border: none;
+      padding: 10px 0;
+      text-indent: 10px;
+      font-size: var(--main-size);
+    }
+    textarea {
+      width: 100%;
+      border: none;
+      padding: 10px 0;
+      text-indent: 10px;
+      font-size: var(--main-size);
+    }
+  }
+}
