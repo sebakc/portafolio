@@ -4,9 +4,9 @@
       <div class="flex">
         <span @click='goTo("/")'>
           <div class="self">
-            <div class="self-name">
+            <a class="self-name">
               Sebastian Vega
-            </div>
+            </a>
             <div class="self-self">
               Full stack developer,
               <br>

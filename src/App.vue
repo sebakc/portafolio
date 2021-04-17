@@ -21,13 +21,12 @@ export default {
   mounted() {
 
     this.switchView()
-    this.mouse()
+    setTimeout(_=> {
+      this.mouse()
+    },1000)
   },
   updated() {
-    setTimeout(_=> {
-      this.switchView()
-
-    },1000)
+    this.switchView()
   },
   methods: {
     mouse () {
