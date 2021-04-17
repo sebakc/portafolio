@@ -8,10 +8,12 @@
           :key="index + '-list-item'"
           @click="goto(item)"
         >
-          <small>{{ index + 1 }}</small>
-          <span class="project">
-            {{ item.project }}
-          </span>
+          <a>
+            <small>{{ index + 1 }}</small>
+            <span class="project">
+              {{ item.project }}
+            </span>
+          </a>
         </li>
       </ul>
       <article class="work">
@@ -35,11 +37,13 @@
               <div id="Technologies">{{ current.technologies }}</div>
             </div>
             <div class="work-item show-mobile">
-              <img class="icon x2" src="../assets/adonisjs.svg" alt="adonisjs">
-              <img class="icon" src="../assets/vue.svg" alt="vuejs">
-              <img class="icon" src="../assets/sass.svg" alt="sass">
-              <img class="icon x2" src="../assets/apache.svg" alt="apache">
-              <img class="icon x2" src="../assets/pm2.svg" alt="pm2">
+              <img
+                v-for="(icon, i) in current.icons"
+                :key="`icon-${i}`"
+                :class="['icon', icon.size]"
+                :src="`/portafolio/src/assets/${icon.name}.svg`"
+                :alt="icon.name"
+              />
             </div>
           </div>
           <div ref="mask" class="content content-masked" :style="'clip-path: circle(60px at '+x+'px '+y+'px)'">
@@ -56,12 +60,13 @@
               <div class="detail op-0" id="Technologies">.</div>
             </div>
             <div class="work-item">
-              <img class="icon" src="../assets/d3.svg" alt="d3js">
-              <img class="icon x2" src="../assets/adonisjs.svg" alt="adonisjs">
-              <img class="icon" src="../assets/vue.svg" alt="vuejs">
-              <img class="icon" src="../assets/sass.svg" alt="sass">
-              <img class="icon x2" src="../assets/apache.svg" alt="apache">
-              <img class="icon x2" src="../assets/pm2.svg" alt="pm2">
+              <img
+                v-for="(icon, i) in current.icons"
+                :key="`icon-${i}`"
+                :class="['icon', icon.size]"
+                :src="`/portafolio/src/assets/${icon.name}.svg`"
+                :alt="icon.name"
+              />
             </div>
           </div>
         </div>
@@ -93,13 +98,34 @@ export default {
           role: 'Main developer (Full stack)',
           technologies: 'AdonisJs - VueJs',
           icons: [
-            'd3',
-            'adonisjs',
-            'vue',
-            'sass',
-            'apache',
-            'pm2',
-            'mysql'
+            {
+              name: 'd3',
+              size: ''
+            },
+            {
+              name: 'adonisjs',
+              size: 'x2'
+            },
+            {
+              name: 'vue',
+              size: ''
+            },
+            {
+              name: 'sass',
+              size: ''
+            },
+            {
+              name: 'apache',
+              size: 'x2'
+            },
+            {
+              name: 'pm2',
+              size: 'x2'
+            },
+            {
+              name: 'mysql',
+              size: 'x2'
+            }
           ]
         },
         {
@@ -110,12 +136,30 @@ export default {
           role: 'Full stack developer',
           technologies: 'Laravel - VueJs',
           icons: [
-            'laravel',
-            'vue',
-            'sass',
-            'apache',
-            'pm2',
-            'postgresql'
+            {
+              name: 'laravel',
+              size: ''
+            },
+            {
+              name: 'vue',
+              size: ''
+            },
+            {
+              name: 'sass',
+              size: ''
+            },
+            {
+              name: 'apache',
+              size: 'x2'
+            },
+            {
+              name: 'pm2',
+              size: 'x2'
+            },
+            {
+              name: 'postgresql',
+              size: ''
+            }
           ]
         }
       ]

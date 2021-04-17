@@ -24,7 +24,10 @@ export default {
     this.mouse()
   },
   updated() {
-    this.switchView()
+    setTimeout(_=> {
+      this.switchView()
+
+    },1000)
   },
   methods: {
     mouse () {
