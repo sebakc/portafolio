@@ -20,7 +20,15 @@
               {{ game.points }}<small>pts</small>
             </div>
             <div class="speed">
-              {{ game.speed * 100 }}<small>px/s</small>
+              <div class="odometer">
+                <div class="circle">
+                  <div
+                    class="needle"
+                    :style="`transform: rotate(${getDeg()}deg);`"
+                  >
+                  </div>
+                </div>
+              </div>{{ parseInt(game.speed * 100) }}<small>px/s</small>
             </div>
           </div>
         </div>
@@ -170,6 +178,38 @@ body.done {
   }
 }
 </style>
+<style lang="scss">
+.odometer {
+  display: inline-block;
+  .circle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--primary);
+    position: relative;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--secondary);
+      left: 0;
+      top: 75%;
+      position: absolute;
+    }
+    .needle {
+      position: absolute;
+      width: 2px;
+      height: 35%;
+      background: var(--primary);
+      left: calc(50% - 1.5px);
+      bottom: 25%;
+      z-index: 99;
+      transform-origin: bottom;
+    }
+  }
+}
+</style>>
 <script>
 class Game {
   pause = false
@@ -317,6 +357,10 @@ export default {
     ])
   },
   methods: {
+    getDeg () {
+      const speed = parseInt(-90 + this.game.speed * 50)
+      return speed < 90 ? speed : 100
+    },
     startGame () {
       this.start = true;
       this.game.start()
