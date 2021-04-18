@@ -17,15 +17,15 @@
         <div class="contact-form">
           <form>
             <div class="form-input">
-              <label for="nombre">Nombre:</label>
-              <input id="nombre" type="text">
+              <label for="name">Name:</label>
+              <input id="name" type="text">
             </div>
             <div class="form-input">
               <label for="email">Email:</label>
               <input id="email" type="email">
             </div>
             <div class="form-input">
-              <label for="message">Mensaje:</label>
+              <label for="message">Message:</label>
               <textarea id="message" rows="4"/>
             </div>
           </form>

@@ -15,11 +15,12 @@ export default {
   },
   watch: {
     '$route.name' () {
-      //this.switchView()
+      setTimeout(_=> {
+        this.mouse()
+      },1000)
     }
   },
   mounted() {
-
     this.switchView()
     setTimeout(_=> {
       this.mouse()
@@ -31,7 +32,7 @@ export default {
   methods: {
     mouse () {
       const cursor = {
-        delay: 8,
+        delay: 6,
         _x: 0,
         _y: 0,
         endX: (window.innerWidth / 2),
@@ -252,7 +253,7 @@ a {
 }
 
 body {
-  background: var(--white);
+  background: var(--secondary);
   text-transform: uppercase;
   &.zero {
     opacity: 0;
@@ -264,7 +265,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: var(--white);
+    background: var(--secondary);
     transition: cubic-bezier(.8,.4,.23,.63) all .5s;
     z-index: 999;
   }

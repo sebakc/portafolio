@@ -13,13 +13,13 @@
         </div>
       </div>
       <div class="center">
-        <div :class="['navigation', {active: active}]">
+        <div class="navigation">
           <div class="lock">
             <img class="icon" src="../assets/lock.svg" alt="lock">
           </div>
-          <div class="web" @click.stop="active = !active">
+          <a class="web" @click.stop="open(project.web)">
             {{ project.web }}
-          </div>
+          </a>
           <div class="star"></div>
           <div class="history">
             <ul class="blank-list">
@@ -72,12 +72,18 @@ export default {
     current () {
 
     }
+  },
+  methods: {
+    open (web) {
+      window.open(web, '_blank')
+    }
   }
 }
 </script>
 <style lang="scss">
 .browser {
   border: 2px solid #4c4c4c;
+  border-bottom-width: 3px;
   border-radius: 4px;
   .controls {
     justify-content: space-between;
@@ -96,14 +102,17 @@ export default {
         height: 100%;
         border-radius: 20px;
         background-color: #373737;
-        color: white;
+        color: var(--secondary);
         text-transform: none;
         display: flex;
         position: relative;
         overflow: hidden;
+        .web {
+          color: var(--secondary);
+        }
         .history {
           position: absolute;
-          background: var(--white);
+          background: var(--secondary);
           color: var(--primary);
           padding: 10px;
           transform: translateY(-100%);
@@ -143,8 +152,10 @@ export default {
     }
   }
   .screen {
+    margin-bottom: -1px;
     img {
       width: 100%;
+      margin-bottom: -10px;
     }
     overflow-y: scroll;
     height: 45vw;

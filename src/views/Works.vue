@@ -8,9 +8,9 @@
           :key="index + '-list-item'"
           @click="goto(item)"
         >
-          <a>
+          <a :class="['link link-dashed', {active:item === current}]">
             <small>{{ index + 1 }}</small>
-            <span class="project">
+            <span class="project dashed-item">
               {{ item.project }}
             </span>
           </a>
@@ -168,12 +168,6 @@ export default {
       ]
     }
   },
-  watch: {
-    current () {
-      //import screen from `../assets/screenshots/${this.current.img}`
-      //document.getElementById('screen').src = screen
-    }
-  },
   mounted () {
     this.images = Images
     this.current = this.projects[0]
@@ -185,7 +179,6 @@ export default {
       top += document.querySelector('.work-image').offsetHeight + 40
       left = 20
     }
-    console.log(top);
 
     document.querySelector('.content-normal').onmousemove = (e) => {
       this.x = e.clientX - left

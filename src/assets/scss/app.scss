@@ -1,10 +1,18 @@
 @import './form.scss';
+@import './links.scss';
 
 :root {
   --primary: #333333;
-  --white: #f4f4f4;
+  --secondary: #f4f4f4;
   --main-size: 20px;
   --second-size: 16px;
+}
+
+.grow-x {
+  transition: ease-in-out all .2s;
+  &:hover {
+    letter-spacing: 5px;
+  }
 }
 
 .section {

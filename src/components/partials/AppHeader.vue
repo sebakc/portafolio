@@ -4,7 +4,7 @@
       <div class="flex">
         <span @click='goTo("/")'>
           <div class="self">
-            <a class="self-name">
+            <a class="self-name grow-x">
               Sebastian Vega
             </a>
             <div class="self-self">
