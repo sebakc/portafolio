@@ -20,9 +20,6 @@
               <a class="nav-link" @click='goTo("/works")'>Works</a>
             </li>
             <li>
-              <a class="nav-link" @click='goTo("/about")'>About</a>
-            </li>
-            <li>
               <a class="nav-link" @click='goTo("/contact")'>Contact</a>
             </li>
             <li>
