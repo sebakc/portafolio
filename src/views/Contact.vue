@@ -29,6 +29,7 @@
               <textarea v-model="form.message" id="message" rows="4"/>
             </div>
             <button @click="submit()" type="submit">send</button>
+            {{ message }}
           </form>
         </div>
       </div>
@@ -40,6 +41,7 @@ import axios from "axios"
 export default {
   data () {
     return {
+      message: "",
       form: {
         message: "",
         name: "",
@@ -52,6 +54,11 @@ export default {
       axios.post("https://api.telegram.org/bot1826217619:AAEX7G4kdHczspledd9NOKnObSBQKYKLR1U/sendMessage", {
         chat_id: "1477994016",
         text: `name: ${form.name}\nemail: ${form.email}\nmessage: ${form.message}`
+      }).then(() => {
+        this.message = "done!"
+        setTimeout(() => {
+          this.message = ""
+        }, 3000)
       })
     }
   }
@@ -59,6 +66,10 @@ export default {
 </script>
 <style lang="scss">
 #contact {
+  form {
+    position: relative;
+    z-index: 999;
+  }
   .blank-list {
     display: flex;
     li {
