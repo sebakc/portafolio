@@ -15,18 +15,18 @@
           </ul>
         </div>
         <div class="contact-form">
-          <form>
+          <form @submit.prevent="submit()">
             <div class="form-input">
               <label for="name">Name:</label>
-              <input id="name" type="text">
+              <input v-model="form.name" id="name" type="text">
             </div>
             <div class="form-input">
               <label for="email">Email:</label>
-              <input id="email" type="email">
+              <input v-model="form.email" id="email" type="email">
             </div>
             <div class="form-input">
               <label for="message">Message:</label>
-              <textarea id="message" rows="4"/>
+              <textarea v-model="form.message" id="message" rows="4"/>
             </div>
           </form>
         </div>
@@ -34,6 +34,28 @@
     </div>
   </section>
 </template>
+<script>
+import axios from "axios"
+export default {
+  data () {
+    return {
+      form: {
+        message: "",
+        name: "",
+        email: ""
+      }
+    }
+  },
+  methods: {
+    submit() {
+      axios.post("https://api.telegram.org/bot1826217619:AAEX7G4kdHczspledd9NOKnObSBQKYKLR1U/sendMessage", {
+        chat_id: "1477994016",
+        text:"Hello World"
+      })
+    }
+  }
+}
+</script>
 <style lang="scss">
 #contact {
   .blank-list {
