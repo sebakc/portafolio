@@ -28,6 +28,7 @@
               <label for="message">Message:</label>
               <textarea v-model="form.message" id="message" rows="4"/>
             </div>
+            <button @click="submit()" type="submit">enviar</button>
           </form>
         </div>
       </div>
