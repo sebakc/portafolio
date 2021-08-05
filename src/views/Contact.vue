@@ -28,7 +28,7 @@
               <label for="message">Message:</label>
               <textarea v-model="form.message" id="message" rows="4"/>
             </div>
-            <button @click="submit()" type="submit">send</button>
+            <button @click="submit()" type="submit">send!</button>
             {{ message }}
           </form>
         </div>
@@ -53,9 +53,9 @@ export default {
     submit() {
       axios.post("https://api.telegram.org/bot1826217619:AAEX7G4kdHczspledd9NOKnObSBQKYKLR1U/sendMessage", {
         chat_id: "1477994016",
-        text: `name: ${form.name}\nemail: ${form.email}\nmessage: ${form.message}`
+        text: `name: ${this.form.name}\nemail: ${this.form.email}\nmessage: ${this.form.message}`
       }).then(() => {
-        this.message = "done!"
+        this.message = "done :D"
         setTimeout(() => {
           this.message = ""
         }, 3000)
