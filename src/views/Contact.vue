@@ -66,12 +66,9 @@ export default {
 </script>
 <style lang="scss">
 #contact {
-  form {
-    position: relative;
-    z-index: 999;
-  }
   .blank-list {
     display: flex;
+    position: relative;
     li {
       margin-right: 1em;
     }
