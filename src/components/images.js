@@ -1,5 +1,5 @@
-import ol from '../assets/screenshots/ol.png'
-import simef from '../assets/screenshots/simef.png'
+import ol from '../assets/screenshots/ol-small.jpg'
+import simef from '../assets/screenshots/simef-small.jpg'
 import d3 from '../assets/d3.svg'
 import adonisjs from '../assets/adonisjs.svg'
 import vue from '../assets/vue.svg'
