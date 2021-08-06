@@ -2,9 +2,9 @@
   <header>
     <div class="limit">
       <div class="flex">
-        <span @click='goTo("/")'>
+        <span>
           <div class="self">
-            <a class="self-name grow-x">
+            <a @click='goTo("/")' class="self-name grow-x">
               Sebastian Vega
             </a>
             <div class="self-self">
