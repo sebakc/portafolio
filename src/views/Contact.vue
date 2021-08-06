@@ -95,7 +95,7 @@ export default {
     font-size: 70%;
   }
   .blank-list {
-    display: flex;
+    display: block;
     position: relative;
     li {
       margin-right: 1em;
