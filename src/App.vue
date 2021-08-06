@@ -65,6 +65,18 @@ export default {
               self.toggleCursorSize();
             });
           });
+
+          // Anchor hovering
+          document.querySelectorAll('button').forEach(function(el) {
+            el.addEventListener('mouseover', function() {
+              self.cursorEnlarged = true;
+              self.toggleCursorSize();
+            });
+            el.addEventListener('mouseout', function() {
+              self.cursorEnlarged = false;
+              self.toggleCursorSize();
+            });
+          });
           
           // Click events
           document.addEventListener('mousedown', function() {
@@ -255,6 +267,9 @@ a {
 body {
   background: var(--secondary);
   text-transform: uppercase;
+  button {
+    text-transform: uppercase;
+  }
   &.zero {
     opacity: 0;
   }
