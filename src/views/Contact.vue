@@ -10,8 +10,21 @@
             Use the form, send me a Whatsapp or however you want, if you have a question just talk to me.
           </p>
           <ul class="blank-list">
-            <li><img class="icon" src="../assets/whatsapp.svg" alt="whatsapp icon" /> +569 4923 3611</li>
-            <li><img class="icon" src="../assets/email.svg" alt="email icon" /> seba.kc@gmail.com</li>
+            <li>
+              <a target="_blank" href="https://api.whatsapp.com/send?phone=56949233611">
+                <img class="icon" src="../assets/whatsapp.svg" alt="whatsapp icon" /> +569 4923 3611
+              </a>
+            </li>
+            <li class="lowercase">
+              <a target="_blank" href="https://t.me/sebakc">
+                <img class="icon" src="../assets/telegram.svg" alt="telegram icon" /> https://t.me/sebakc
+              </a>
+            </li>
+            <li class="lowercase">
+              <a href="mailto:seba.kc@gmail.com">
+                <img class="icon" src="../assets/email.svg" alt="email icon" /> seba.kc@gmail.com
+              </a>
+            </li>
           </ul>
         </div>
         <div class="contact-form">
@@ -28,7 +41,7 @@
               <label for="message">Message:</label>
               <textarea v-model="form.message" id="message" rows="4"/>
             </div>
-            <button @click="submit()" type="submit">send!</button>
+            <button type="submit">send!</button>
             {{ message }}
           </form>
         </div>
@@ -51,14 +64,19 @@ export default {
   },
   methods: {
     submit() {
+      this.message = "Sending..."
       axios.post("https://api.telegram.org/bot1826217619:AAEX7G4kdHczspledd9NOKnObSBQKYKLR1U/sendMessage", {
         chat_id: "1477994016",
         text: `name: ${this.form.name}\nemail: ${this.form.email}\nmessage: ${this.form.message}`
       }).then(() => {
-        this.message = "done :D"
-        setTimeout(() => {
-          this.message = ""
-        }, 3000)
+        this.message = "Done :D"
+        this.form = {
+          message: "",
+          name: "",
+          email: ""
+        }
+      }).catch(()=>{
+        this.message = "There was a mistake D: please try again"
       })
     }
   }
@@ -71,17 +89,6 @@ export default {
     position: relative;
     li {
       margin-right: 1em;
-    }
-    &::before {
-      content: '';
-      height: 60%;
-      width: 100%;
-      background: var(--dark);
-      display: block;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      z-index: 99;
     }
   }
   @media screen and (min-width: 550px) {

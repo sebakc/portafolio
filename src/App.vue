@@ -258,6 +258,9 @@ body {
   &.zero {
     opacity: 0;
   }
+  .lowercase {
+    text-transform: lowercase;
+  }
   &::before {
     top: -100%;
     content: '';
