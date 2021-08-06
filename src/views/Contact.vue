@@ -38,6 +38,11 @@
               <input v-model="form.email" id="email" type="email">
             </div>
             <div class="form-input">
+              <label for="phone">Phone:</label>
+              <small class="lowercase">(just if you want me to call you soon)</small>
+              <input v-model="form.phone" id="phone" type="text">
+            </div>
+            <div class="form-input">
               <label for="message">Message:</label>
               <textarea v-model="form.message" id="message" rows="4"/>
             </div>
@@ -58,7 +63,8 @@ export default {
       form: {
         message: "",
         name: "",
-        email: ""
+        email: "",
+        phone: ""
       }
     }
   },
@@ -67,13 +73,14 @@ export default {
       this.message = "Sending..."
       axios.post("https://api.telegram.org/bot1826217619:AAEX7G4kdHczspledd9NOKnObSBQKYKLR1U/sendMessage", {
         chat_id: "1477994016",
-        text: `name: ${this.form.name}\nemail: ${this.form.email}\nmessage: ${this.form.message}`
+        text: `name: ${this.form.name}\nemail: ${this.form.email}\nmessage: ${this.form.message}\nphone: ${this.form.phone}`
       }).then(() => {
         this.message = "Done :D"
         this.form = {
           message: "",
           name: "",
-          email: ""
+          email: "",
+          phone: ""
         }
       }).catch(()=>{
         this.message = "There was a mistake D: please try again"
@@ -84,6 +91,9 @@ export default {
 </script>
 <style lang="scss">
 #contact {
+  small {
+    font-size: 70%;
+  }
   .blank-list {
     display: flex;
     position: relative;
