@@ -185,7 +185,19 @@ export default {
 $primary: #333333;
 $primary-light: mix(white, $primary, 25%);
 
-
+.row {
+  display: flex;
+  .col {
+    &:nth-child(1) {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+    width: 100%;
+    padding: 0 15px;
+  }
+}
 
 html,
 body {
